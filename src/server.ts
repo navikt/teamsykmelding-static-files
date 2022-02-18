@@ -40,7 +40,7 @@ app.get('*', async(req, res) => {
         console.log(metadata[0])
         cache[filnavn] = {
             content,
-            contentType: metadata[0].type
+            contentType: metadata[0].contentType
         }
         sendFraCache()
     } catch (e) {
