@@ -34,6 +34,7 @@ app.get('*', async(req, res) => {
     }
     if (cache[filnavn]) {
         sendFraCache()
+        return
     }
     try {
         const content = (await bucket.file(filnavn).download())[0]
