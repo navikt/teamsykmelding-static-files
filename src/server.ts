@@ -6,7 +6,7 @@ const app = express()
 const port = 8080
 const storage = new Storage()
 const bucket = await storage.bucket(process.env.BUCKET_NAME!)
-app.set('etag', false)
+
 app.set('x-powered-by', false)
 
 interface File {
@@ -30,6 +30,7 @@ app.get('*', async(req, res) => {
 
     const sendFraCache = () => {
         res.contentType(cache[filnavn].contentType)
+        res.setHeader('cache-control', 'public, max-age=31536000, immutable')
         res.send(cache[filnavn].content)
     }
     if (cache[filnavn]) {
@@ -38,10 +39,10 @@ app.get('*', async(req, res) => {
     }
     try {
         const content = (await bucket.file(filnavn).download())[0]
-        const metadata = (await bucket.file(filnavn).getMetadata())
+        const contentType = (await bucket.file(filnavn).getMetadata())[0].contentType
         cache[filnavn] = {
             content,
-            contentType: metadata[0].contentType
+            contentType
         }
         sendFraCache()
     } catch (e: any) {
