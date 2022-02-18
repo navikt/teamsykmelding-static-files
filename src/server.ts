@@ -20,15 +20,16 @@ app.get('/internal/health', async(req, res) => {
 
 app.get('*', async(req, res) => {
     const filnavn = req.path.slice(1)
+
+    const sendFraCache = () => {
+        res.send(cache[filnavn][0])
+    }
     if (cache[filnavn]) {
-        res.status(200)
-        res.write(cache[filnavn])
-        res.end()
+        sendFraCache()
     }
     try {
-        const a = await bucket.file(filnavn).download()
-        cache[filnavn] = a
-        res.send(a)
+        cache[filnavn] = await bucket.file(filnavn).download()
+        sendFraCache()
     } catch (e) {
         console.error('ops', e)
         res.sendStatus(404)
