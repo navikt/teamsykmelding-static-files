@@ -7,6 +7,7 @@ const port = 8080
 const storage = new Storage()
 const bucket = await storage.bucket(process.env.BUCKET_NAME!)
 app.set('etag', false)
+app.set('x-powered-by', false)
 
 interface File {
     content: Buffer,
@@ -37,15 +38,17 @@ app.get('*', async(req, res) => {
     try {
         const content = (await bucket.file(filnavn).download())[0]
         const metadata = (await bucket.file(filnavn).getMetadata())
-        console.log(metadata[0])
         cache[filnavn] = {
             content,
             contentType: metadata[0].contentType
         }
         sendFraCache()
-    } catch (e) {
+    } catch (e: any) {
+        if (e.statusCode == 404) {
+            res.sendStatus(404)
+        }
         console.error('ops', e)
-        res.sendStatus(404)
+        res.sendStatus(500)
     }
 })
 
