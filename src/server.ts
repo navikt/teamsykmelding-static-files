@@ -22,7 +22,7 @@ app.get('*', async(req, res) => {
     if(cache[req.path]){
         res.send(cache[req.path])
     }
-    const a = await bucket.file('sdf').download()
+    const a = await bucket.file(req.path).download()
     cache[req.path] = a
     res.send(a)
 })
