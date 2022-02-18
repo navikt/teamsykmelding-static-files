@@ -1,6 +1,7 @@
 {
   "name": "flex-static-files",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "start": "node ./build/server.js",
     "build": "tsc",
