@@ -29,7 +29,7 @@ app.get('*', async(req, res) => {
         res.send(a)
     } catch (e) {
         console.error('ops', e)
-        res.status(404)
+        res.sendStatus(404)
     }
 })
 
