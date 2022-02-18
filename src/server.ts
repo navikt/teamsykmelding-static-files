@@ -21,7 +21,9 @@ app.get('/internal/health', async(req, res) => {
 app.get('*', async(req, res) => {
     const filnavn = req.path.slice(1)
     if (cache[filnavn]) {
-        res.send(cache[filnavn])
+        res.status(200)
+        res.write(cache[filnavn])
+        res.end()
     }
     try {
         const a = await bucket.file(filnavn).download()
