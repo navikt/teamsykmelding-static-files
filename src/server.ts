@@ -1,6 +1,5 @@
 import express from 'express'
-import { DownloadResponse, Storage } from '@google-cloud/storage'
-import * as Buffer from 'buffer'
+import { Storage } from '@google-cloud/storage'
 
 
 const app = express()
