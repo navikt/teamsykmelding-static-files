@@ -4,7 +4,7 @@ App som har ansvar for å serve statiske ressurser for frontender.
 Brukes spesielt til å unngå at klienter henter statiske filer fra podder med ulik versjon når appen deployes.
 
 Denne appen server alle filene som ligger i en bucket. 
-Filene blir cachet i podden i en time før de hentes på nytt fra bucketen. Dette for å hindre minneekasjon over tid.
+Filene blir cachet i podden i en time før de hentes på nytt fra bucketen. Dette for å hindre minnelekasje over tid.
 
 ## Opplasting til bucket
 Man må laste opp filene til bucketen før man deployer en ny versjon av frontend. Dette er praktisk å gjøre i en Github action.
