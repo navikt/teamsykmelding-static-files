@@ -1,6 +1,6 @@
 import { logger } from './logger'
 
-export function getBucketName() {
+export function hentBucketName() {
     const bucketname = process.env.BUCKET_NAME
     if (bucketname) {
         return bucketname as string

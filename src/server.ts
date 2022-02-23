@@ -2,13 +2,13 @@ import express from 'express'
 import { Storage } from '@google-cloud/storage'
 import { logger } from './logger'
 import { InMemFile, FileCache } from './types'
-import { getBucketName } from './getBucketName'
+import { hentBucketName } from './hentBucketName'
 
 
 const app = express()
 const port = 8080
 const storage = new Storage()
-const bucketName = getBucketName()
+const bucketName = hentBucketName()
 const bucket = await storage.bucket(bucketName)
 const cache: FileCache = {}
 const cacheFlushInterval = 60 * 60 * 1000 // 1 time i millisekunder
