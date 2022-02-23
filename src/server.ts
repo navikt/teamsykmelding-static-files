@@ -28,23 +28,25 @@ app.get('/internal/health', async(req, res) => {
 app.get('*', async(req, res) => {
     const filnavn = req.path.slice(1)
 
-    const sendFraCache = () => {
-        res.contentType(cache[filnavn].contentType)
+    const sendFil = (file: File) => {
+        res.contentType(file.contentType)
         res.setHeader('cache-control', 'public, max-age=31536000, immutable')
-        res.send(cache[filnavn].content)
+        res.send(file.content)
     }
-    if (cache[filnavn]) {
-        sendFraCache()
+    const cacheElement = cache[filnavn]
+    if (cacheElement) {
+        sendFil(cacheElement)
         return
     }
     try {
         const content = (await bucket.file(filnavn).download())[0]
         const contentType = (await bucket.file(filnavn).getMetadata())[0].contentType
-        cache[filnavn] = {
+        const file = {
             content,
             contentType
         }
-        sendFraCache()
+        cache[filnavn] = file
+        sendFil(file)
     } catch (e: any) {
         if (e.statusCode == 404) {
             res.sendStatus(404)
