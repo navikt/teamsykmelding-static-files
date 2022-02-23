@@ -3,6 +3,6 @@ export interface InMemFile {
     contentType: string,
 }
 
-export type InMemFileCache = {
+export type FileCache = {
     [key: string]: InMemFile;
 };
