@@ -13,16 +13,16 @@ export const errorCounter = new Counter({
 
 export const successCounter = new Counter({
     name: 'success',
-    help: 'Antall requests returnerte data ok'
+    help: 'Antall requests som returnerte data ok'
 })
 
 export const cacheHitCounter = new Counter({
     name: 'cache_hit',
-    help: 'Antall requests returnerte data fra cache'
+    help: 'Antall requests som  returnerte data fra cache'
 })
 
 
 export const cacheMissCounter = new Counter({
     name: 'cache_miss',
-    help: 'Antall requests returnerte data fra bucketen'
+    help: 'Antall requests som returnerte data fra bucketen'
 })
