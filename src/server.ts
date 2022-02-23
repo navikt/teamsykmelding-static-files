@@ -40,7 +40,7 @@ app.get('*', async(req, res) => {
         cache[filnavn] = file
         sendFil(file)
     } catch (e: any) {
-        if (e.statusCode == 404) {
+        if (e.code == 404) {
             logger.warn(`404: ${filnavn}`)
             res.sendStatus(404)
         } else {
