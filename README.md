@@ -1,7 +1,8 @@
 # flex-static-files
 
-App som har ansvar for å serve statiske ressurser for frontender. 
+App som har ansvar for å serve statiske ressurser for frontender.
 Brukes spesielt til å unngå at klienter henter statiske filer fra podder med ulik versjon når appen deployes.
+Tanken er at hvert team med behov for en slik app kan ha sin egen instans av denne applikasjonen.
 
 Denne appen server alle filene som ligger i en bucket. 
 Filene blir cachet i podden i en time før de hentes på nytt fra bucketen. Dette for å hindre minnelekasje over tid.
