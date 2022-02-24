@@ -20,6 +20,7 @@ app.set('x-powered-by', false)
 
 app.get('/internal/health', async(req, res) => res.sendStatus(200))
 app.get('/internal/prometheus', async(req, res) => res.json(await register.metrics()))
+app.get('/', async(req, res) => res.send('I am flex static files'))
 
 app.get('*', async(req, res) => {
     const filnavn = req.path.slice(1)

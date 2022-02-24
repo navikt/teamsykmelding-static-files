@@ -1,4 +1,6 @@
 {
   "bucketName": "flex-static-files-dev",
-  "ingress": "https://flex-static-files.dev.nav.no"
+  "ingress": "https://flex-static-files.dev.nav.no",
+  "minReplicas": 1,
+  "maxReplicas": 2
 }
