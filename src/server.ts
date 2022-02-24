@@ -22,7 +22,7 @@ app.get('/', async(req, res) => res.send('I am flex static files'))
 app.get('/internal/health', async(req, res) => res.sendStatus(200))
 app.get('/internal/prometheus', async(req, res) => {
     res.set('Content-Type', register.contentType)
-    res.end(register.metrics())
+    res.end(await register.metrics())
 })
 
 app.get('*', async(req, res) => {
