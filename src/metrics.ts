@@ -8,7 +8,7 @@ export const notFoundCounter = new Counter({
 
 export const errorCounter = new Counter({
     name: 'error',
-    help: 'Antall requests som resulterte i 505'
+    help: 'Antall requests som resulterte i 500'
 })
 
 export const successCounter = new Counter({
