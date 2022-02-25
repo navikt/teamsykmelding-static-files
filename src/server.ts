@@ -26,7 +26,7 @@ app.get('/internal/prometheus', async(req, res) => {
 })
 
 app.get('*', async(req, res) => {
-    const filnavn = req.path.slice(1)
+    const filnavn = decodeURI(req.path.slice(1))
 
     const sendFil = (file: InMemFile) => {
         res.contentType(file.contentType)
