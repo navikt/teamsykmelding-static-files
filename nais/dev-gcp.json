@@ -1,6 +1,6 @@
 {
-  "bucketName": "flex-static-files-dev",
-  "ingress": "https://flex-static-files.dev.nav.no",
+  "bucketName": "teamsykmelding-static-files-dev",
+  "ingress": "https://teamsykmelding-static-files.dev.nav.no",
   "minReplicas": 1,
   "maxReplicas": 2
 }

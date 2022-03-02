@@ -18,7 +18,7 @@ collectDefaultMetrics()
 
 app.set('x-powered-by', false)
 
-app.get('/', async(req, res) => res.send('I am flex static files'))
+app.get('/', async(req, res) => res.send('I am teamsykmelding static files'))
 app.get('/internal/health', async(req, res) => res.sendStatus(200))
 app.get('/internal/prometheus', async(req, res) => {
     res.set('Content-Type', register.contentType)
@@ -74,5 +74,5 @@ setInterval(() => {
 
 }, cacheFlushInterval)
 
-app.listen(port, () => logger.info(`Flex static files lytter på ${port}!`))
+app.listen(port, () => logger.info(`TeamSykmelding static files lytter på ${port}!`))
 

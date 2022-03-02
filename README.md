@@ -1,4 +1,6 @@
-# flex-static-files
+# teamsykmelding-static-files
+
+Fork av [flex-static-files](https://github.com/navikt/flex-static-files).
 
 App som har ansvar for å serve statiske ressurser for frontender.
 Brukes spesielt til å unngå at klienter henter statiske filer fra podder med ulik versjon når appen deployes.

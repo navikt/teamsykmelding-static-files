@@ -1,13 +1,13 @@
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
-  name: flex-static-files
-  namespace: flex
+  name: teamsykmelding-static-files
+  namespace: teamsykmelding
   annotations:
     config.linkerd.io/proxy-memory-limit: "512M"
     config.linkerd.io/proxy-memory-request: "128M"
   labels:
-    team: flex
+    team: teamsykmelding
 spec:
   image: {{ image }}
   replicas:
