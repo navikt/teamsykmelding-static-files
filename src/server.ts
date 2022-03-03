@@ -1,4 +1,5 @@
 import express from 'express'
+import cors from 'cors'
 import { Storage } from '@google-cloud/storage'
 import { logger } from './logger'
 import { InMemFile, FileCache } from './types'
@@ -18,6 +19,7 @@ collectDefaultMetrics()
 
 app.set('x-powered-by', false)
 
+app.use(cors({ origin: /\.nav\.no$/, optionsSuccessStatus: 200 }))
 app.get('/', async(req, res) => res.send('I am teamsykmelding static files'))
 app.get('/internal/health', async(req, res) => res.sendStatus(200))
 app.get('/internal/prometheus', async(req, res) => {
