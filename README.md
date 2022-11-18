@@ -1,4 +1,6 @@
-# teamsykmelding-static-files
+# teamsykmelding-static-files (deprecated)
+
+# ⚠️ Deprikert til fordel for [NAV CDN](https://github.com/nais/frontend-plattform) ⚠️
 
 Fork av [flex-static-files](https://github.com/navikt/flex-static-files).
 
